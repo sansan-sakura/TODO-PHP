@@ -6,7 +6,7 @@ if(isset($_POST['todo'])){
         $error="Please write your todo 🦔";
     } else{
         $todo=mysqli_real_escape_string($conn,$_POST['todo']);
-        $sql="INSERT INTO lists(todo) VALUES('$todo')";
+        $sql="INSERT INTO lists(todo,todoStatus) VALUES('$todo','not-yet')";
         if(mysqli_query($conn,$sql)){
         header('Location: ./index.php');
         } else {
